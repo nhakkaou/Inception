@@ -1,0 +1,1 @@
+CREATE database IF NOT EXISTS "nhakkaou";

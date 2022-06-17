@@ -1,18 +1,27 @@
 version: "3"
 
 services:
-  mariadb:
+  db:
     build: ./requirements/mariadb
     container_name: mariadb
     ports:
       - "3306:3306"
     restart: always
 
+  wordpress:
+    depends_on:
+      - db
+    build: ./requirements/wordpress
+    container_name: wordpress
+    ports:
+      - "8000:80"
+    restart: always
+
   nginx:
     build: ./requirements/nginx
     container_name: nginx
-    # depends_on:
-    #   - wordpress
+    depends_on:
+      - wordpress
     ports:
       - 443:443
     restart: always
