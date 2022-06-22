@@ -14,7 +14,7 @@ services:
     build: ./requirements/wordpress
     container_name: wordpress
     ports:
-      - "8000:80"
+      - "9000:9000"
     restart: always
 
   nginx:
