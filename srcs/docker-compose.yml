@@ -17,11 +17,11 @@ services:
   #     - "8000:80"
   #   restart: always
 
-  nginx:
-    build: ./requirements/nginx
-    container_name: nginx
-    depends_on:
-      - wordpress
-    ports:
-      - 443:443
-    restart: always
+  # nginx:
+  #   build: ./requirements/nginx
+  #   container_name: nginx
+  #   depends_on:
+  #     - wordpress
+  #   ports:
+  #     - 443:443
+  #   restart: always
