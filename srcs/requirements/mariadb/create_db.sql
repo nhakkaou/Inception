@@ -1,2 +1,3 @@
 CREATE DATABASE IF NOT EXISTS nhakkaou;
+USE nhakkaou;
 CREATE USER nhakkaou IDENTIFIED BY "root";
