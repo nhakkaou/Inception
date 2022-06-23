@@ -26,7 +26,7 @@ define( 'DB_NAME', 'nhakkaou' );
 define( 'DB_USER', 'nhakkaou' );
 
 /** Database password */
-define( 'DB_PASSWORD', 'root' );
+define( 'DB_PASSWORD', 'toor' );
 
 /** Database hostname */
 define( 'DB_HOST', 'mariadb' );
