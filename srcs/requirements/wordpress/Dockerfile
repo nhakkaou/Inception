@@ -10,7 +10,5 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
     && mv wp-cli.phar /usr/local/bin/wp
 ADD ./tools/script.sh /tmp/script.sh
 CMD [./tmp/script]
-
 EXPOSE 9000
-ENTRYPOINT ["tail"]
-CMD ["-f","/dev/null"]
+
