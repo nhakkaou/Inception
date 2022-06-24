@@ -8,7 +8,7 @@ COPY ./config/www.conf  /etc/php/7.3/fpm/pool.d/www.conf
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
     && chmod +x wp-cli.phar \
     && mv wp-cli.phar /usr/local/bin/wp
-ADD script.sh /tmp/script.sh
+ADD ./tools/script.sh /tmp/script.sh
 CMD [./tmp/script]
 
 EXPOSE 9000
