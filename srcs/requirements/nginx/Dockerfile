@@ -7,7 +7,7 @@ RUN apt-get install -y nginx openssl \
     && echo "daemon off;" >> /etc/nginx/nginx.conf
 
 
-RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/selfsigned-nginx.key -out /etc/ssl/certs/selfsigned-nginx.crt -subj "/C=MA/ST=Khouribga/L=Khouribga/O=Inception/OU=IT/CN=localhost/emailAddress=nhamid@student.1337.ma"
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/selfsigned-nginx.key -out /etc/ssl/certs/selfsigned-nginx.crt -subj "/C=MA/ST=Khouribga/L=Khouribga/O=Inception/OU=IT/CN=localhost/emailAddress=nhakkaou@student.1337.ma"
 
 RUN rm -rf /etc/nginx/sites-enabled/default
 COPY ./conf/default /etc/nginx/default

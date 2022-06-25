@@ -12,7 +12,7 @@ services:
 
   wordpress:
     depends_on:
-      - db
+      - mariadb
     build: ./requirements/wordpress
     container_name: wordpress
     volumes:
