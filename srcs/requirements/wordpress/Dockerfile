@@ -6,9 +6,6 @@ RUN apt-get update  \
 COPY ./tools/script.sh /tmp/
 COPY ./config/www.conf  /etc/php/7.3/fpm/pool.d/www.conf
 COPY ./config/wp-config.php  /tmp/wp-config.php
-RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
-    && chmod +x wp-cli.phar \
-    && mv wp-cli.phar /usr/local/bin/wp
 ADD ./tools/script.sh /tmp/script.sh
 ENTRYPOINT [ "/bin/sh", "/tmp/script.sh" ]
 EXPOSE 9000
