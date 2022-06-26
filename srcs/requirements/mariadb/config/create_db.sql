@@ -1,0 +1,4 @@
+CREATE DATABASE IF NOT EXISTS `nhakkaou`;
+CREATE USER IF NOT EXISTS 'nhakkaou'@'%' IDENTIFIED BY 'toor';
+GRANT ALL PRIVILEGES ON `nhakkaou`.* TO 'nhakkaou'@'%';
+FLUSH PRIVILEGES;
