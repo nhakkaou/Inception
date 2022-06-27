@@ -4,9 +4,8 @@ RUN apt-get update  \
     && apt-get upgrade -y \
     && apt-get install -y mariadb-server
 COPY ./config/create_db.sql /tmp/
+COPY ./tools/script.sh /tmp/
 COPY ./config/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
-RUN service mysql start
-RUN mysql -u root < /tmp/create_db.sql
 
 ENV MYSQL_USER=nhakkaou \
     MYSQL_PASSWORD=toor \
@@ -14,4 +13,4 @@ ENV MYSQL_USER=nhakkaou \
     MYSQL_ROOT_PASSWORD=toor
 
 EXPOSE 3306
-CMD ["mysqld_safe"]
+ENTRYPOINT [ "/bin/sh", "/tmp/script.sh" ]
