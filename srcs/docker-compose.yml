@@ -16,7 +16,7 @@ services:
     build: ./requirements/wordpress
     container_name: wordpress
     volumes:
-      - hostPath:/home/wp
+      - hostPath:/var/www/html
     ports:
       - "9000:9000"
     restart: always
