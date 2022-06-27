@@ -31,11 +31,11 @@ services:
     ports:
       - 443:443
     restart: always
-  phpmyadmin:
-    image: phpmyadmin
+  adminer:
+    image: adminer
     restart: always
     ports:
-      - 8080:80
+      - 8080:8080
 volumes:
   myapp:
   hostPath:
