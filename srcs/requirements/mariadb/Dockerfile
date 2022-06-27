@@ -5,7 +5,8 @@ RUN apt-get update  \
     && apt-get install -y mariadb-server
 COPY ./config/create_db.sql /tmp/
 COPY ./config/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
-RUN service mysql start && mysql -u root < /tmp/create_db.sql
+RUN service mysql start
+RUN mysql -u root < /tmp/create_db.sql
 
 ENV MYSQL_USER=nhakkaou \
     MYSQL_PASSWORD=toor \
