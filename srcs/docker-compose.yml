@@ -10,24 +10,24 @@ services:
       - myapp:/var/lib/mysql
     restart: always
 
-  # wordpress:
-  #   depends_on:
-  #     - mariadb
-  #   build: ./requirements/wordpress
-  #   container_name: wordpress
-  #   volumes:
-  #     - hostPath:/home/wp
-  #   ports:
-  #     - "9000:9000"
-  #   restart: always
+  wordpress:
+    depends_on:
+      - mariadb
+    build: ./requirements/wordpress
+    container_name: wordpress
+    volumes:
+      - hostPath:/home/wp
+    ports:
+      - "9000:9000"
+    restart: always
 
   nginx:
     build: ./requirements/nginx
     container_name: nginx
     volumes:
       - hostPath:/var/wwww/html
-    # depends_on:
-    #   - wordpress
+    depends_on:
+      - wordpress
     ports:
       - 443:443
     restart: always
