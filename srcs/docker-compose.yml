@@ -34,3 +34,9 @@ services:
 volumes:
   myapp:
   hostPath:
+    driver: local
+    driver_opts:
+    type: 'none'
+    o: bind
+    device: /home/nhakkaou/data/wp
+
