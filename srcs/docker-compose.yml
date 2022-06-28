@@ -25,7 +25,7 @@ services:
     build: ./requirements/nginx
     container_name: nginx
     volumes:
-      - hostPath:/var/wwww/html
+      - hostPath:/var/www/html
     depends_on:
       - wordpress
     ports:
