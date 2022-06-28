@@ -13,7 +13,7 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private
 RUN rm -rf /etc/nginx/sites-enabled/default
 COPY ./config/default /etc/nginx/default
 RUN ln -s /etc/nginx/default /etc/nginx/sites-enabled/default
-
+RUN chown -R www-data:www-data /var/www/html
 EXPOSE 443
 
 CMD service nginx start

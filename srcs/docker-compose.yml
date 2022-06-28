@@ -36,7 +36,7 @@ volumes:
   hostPath:
     driver: local
     driver_opts:
-    type: 'none'
-    o: bind
-    device: /home/nhakkaou/data/wp
+      type: 'none'
+      o: bind
+      device: /home/nhakkaou/data/wp
 
