@@ -41,15 +41,27 @@ server {
     root /var/www/html;
     
     # Add index.php to the list if you are using PHP
-    index index.php index.html index.htm index.nginx-debian.html;
+    index index.php index.html index.htm;
     
     server_name localhost;
     
-    location / {
-        # First attempt to serve request as file, then
-        # as directory, then fall back to displaying a 404.
-        try_files $uri $uri/ =404;
+   location / {
+    if ($request_uri ~ ^/(.*)\.html$) {
+        return 302 /$1;
+        }
     }
+
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+        location ~ \.php$ {
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass   unix:/var/run/php/php7.4-fpm.sock;
+        fastcgi_index  index.php;
+        fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include        fastcgi_params;
+    }}
     
     # pass PHP scripts to FastCGI server
     #
@@ -57,9 +69,9 @@ server {
     #	include snippets/fastcgi-php.conf;
     #
     #	# With php-fpm (or other unix sockets):
-    #	fastcgi_pass unix:/run/php/php7.3-fpm.sock;
+    fastcgi_pass unix:/run/php/php7.3-fpm.sock;
     #	# With php-cgi (or other tcp sockets):
-    #	fastcgi_pass 127.0.0.1:9000;
+    fastcgi_pass 127.0.0.1:9000;
     #}
     
     # deny access to .htaccess files, if Apache's document root
