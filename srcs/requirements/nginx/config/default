@@ -2,7 +2,6 @@ user                            www-data;
 worker_processes                auto; # it will be determinate automatically by the number of core
 
 error_log                       /var/log/nginx/error.log warn;
-pid                             /var/run/nginx/nginx.pid; #it permit you to use /etc/init.d/nginx reload|restart|stop|start
 
 events {
     worker_connections			1024;
@@ -18,8 +17,8 @@ http {
     server {
         listen                  443 ssl;
         
-        ssl_certificate			/etc/ssl/certs/nginx-selfsigned.crt;
-        ssl_certificate_key		/etc/ssl/private/nginx-selfsigned.key;
+        ssl_certificate			/etc/ssl/certs/selfsigned-nginx.crt;
+        ssl_certificate_key		/etc/ssl/private/selfsigned-nginx.key;
         # support for TLS v1.2 and v1.3 only
         ssl_protocols           TLSv1.2 TLSv1.3;
         
