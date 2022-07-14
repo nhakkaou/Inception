@@ -31,6 +31,15 @@ services:
     ports:
       - 443:443
     restart: always
+  adminer:
+    build: ./requirements/bonus/adminer
+    container_name: adminer
+    depends_on:
+      - mariadb
+    ports:
+      - "8080:8080"
+    restart: always
+
 volumes:
   myapp:
   hostPath:
