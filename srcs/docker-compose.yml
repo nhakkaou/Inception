@@ -39,7 +39,22 @@ services:
     ports:
       - "8080:8080"
     restart: always
-
+  redis:
+    build: ./requirements/bonus/redis
+    container_name: redis
+    depends_on:
+      - mariadb
+    ports:
+      - "6379:6379"
+    restart: always
+  # ftp:
+  #   build: ./requirements/bonus/ftp
+  #   container_name: ftp
+  #   depends_on:
+  #     - mariadb
+  #   ports:
+  #     - "21:21"
+  #   restart: always
 volumes:
   myapp:
   hostPath:
