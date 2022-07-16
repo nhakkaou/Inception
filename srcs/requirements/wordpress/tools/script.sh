@@ -8,7 +8,13 @@ wp core download --path=/var/www/html --allow-root
 chown -R www-data:www-data /var/www/html
 rm -rf /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
 wp config create --dbname=nhakkaou --dbuser=nhakkaou --dbpass=toor --dbhost=mariadb --path=/var/www/html/ --allow-root --skip-check
-wp core install --url=nhakkaou.42.fr --title=Example --admin_user=nhakkaou --admin_password=toor --admin_email=noureddine.hak@gmail.com --path=/var/www/html/ --allow-root
+wp core install  --title=Example --admin_user=nhakkaou --admin_password=toor --admin_email=noureddine.hak@gmail.com --path=/var/www/html/ --allow-root
+rm -rf redis-cache
+wget https://downloads.wordpress.org/plugin/redis-cache.2.0.22.zip -P /var/www/html/wp-content/plugins/
+unzip /var/www/html/wp-content/plugins/redis-cache.2.0.22.zip -d /var/www/html/wp-content/plugins/
+wp plugin activate redis-cache.2.0.22 --path=/var/www/html/ --allow-root
+rm -rf redis-cache*.zip
+
 service php7.3-fpm start
 tail -f > /dev/null
 # tail is forbiden just for test

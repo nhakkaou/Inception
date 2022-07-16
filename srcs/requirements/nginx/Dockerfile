@@ -1,7 +1,7 @@
 FROM debian:buster
 
-RUN apt-get update 
-RUN apt-get install -y nginx openssl \
+RUN apt-get update \
+    && apt-get install -y nginx openssl \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 # && echo "daemon off;" >> /etc/nginx/nginx.conf
@@ -14,5 +14,4 @@ COPY ./conf/default /etc/nginx/sites-available/wordpress.conf
 RUN ln -s /etc/nginx/sites-available/wordpress.conf /etc/nginx/sites-enabled/
 EXPOSE 443
 
-# CMD service nginx start
-CMD  tail -f /dev/null
+CMD ["nginx", "-g", "daemon off;"]
