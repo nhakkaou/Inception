@@ -14,7 +14,8 @@ wget https://downloads.wordpress.org/plugin/redis-cache.2.0.22.zip -P /var/www/h
 unzip /var/www/html/wp-content/plugins/redis-cache.2.0.22.zip -d /var/www/html/wp-content/plugins/
 wp plugin activate redis-cache.2.0.22 --path=/var/www/html/ --allow-root
 rm -rf redis-cache*.zip
-
+echo "define('WP_CACHE', true);" >> /var/www/html/wp-config.php
+echo "define('WP_REDIS_HOST', 'redis');" >> /var/www/html/wp-config.php
 service php7.3-fpm start
 tail -f > /dev/null
-# tail is forbiden just for test
+# tail is forbiden just for testhttps://www.digitalocean.com/community/tutorials/how-to-set-up-vsftpd-for-a-user-s-directory-on-debian-10
