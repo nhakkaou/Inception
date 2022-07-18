@@ -47,14 +47,14 @@ services:
     ports:
       - "6379:6379"
     restart: always
-  # ftp:
-  #   build: ./requirements/bonus/ftp
-  #   container_name: ftp
-  #   depends_on:
-  #     - mariadb
-  #   ports:
-  #     - "21:21"
-  #   restart: always
+  ftp:
+    build: ./requirements/bonus/ftp
+    container_name: ftp
+    depends_on:
+      - mariadb
+    ports:
+      - "21:21"
+    restart: always
 volumes:
   myapp:
   hostPath:
