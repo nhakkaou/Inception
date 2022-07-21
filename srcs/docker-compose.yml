@@ -55,6 +55,12 @@ services:
     ports:
       - "21:21"
     restart: always
+  website:
+    build: ./requirements/bonus/website
+    container_name: website
+    ports:
+      - "3000:3000"
+    restart: always
 volumes:
   myapp:
   hostPath:
