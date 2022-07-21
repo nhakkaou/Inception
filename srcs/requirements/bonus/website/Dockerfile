@@ -2,8 +2,7 @@ from debian:buster
 
 RUN apt-get update  \
     && apt-get upgrade -y \
-    &&  apt-get install npm -y \
-    &&  apt-get install pm2 -y 
+    && apt-get install git curl
 
 COPY ./tools/script.sh /tmp/script.sh
 

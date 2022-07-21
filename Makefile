@@ -14,7 +14,6 @@ names=srcs_nginx srcs_mariadb srcs_wordpress
 volumes=srcs_myapp srcs_hostPath
 
 all:
-	echo "127.0.0.1 nhakkaou.42.fr" >> /etc/hosts
 	docker-compose -f ./srcs/docker-compose.yml up -d --build
 down:
 	docker-compose -f ./srcs/docker-compose.yml down
