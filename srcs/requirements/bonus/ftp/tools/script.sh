@@ -1,4 +1,5 @@
-adduser --gecos "" --disabled-password sammy
+adduser sammy;
+echo "sammy:test" | chpasswd;
 mkdir /home/sammy/ftp
 chown nobody:nogroup /home/sammy/ftp
 chmod a-w /home/sammy/ftp
