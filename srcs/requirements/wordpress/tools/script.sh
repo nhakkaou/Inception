@@ -17,5 +17,4 @@ rm -rf redis-cache*.zip
 echo "define('WP_CACHE', true);" >> /var/www/html/wp-config.php
 echo "define('WP_REDIS_HOST', 'redis');" >> /var/www/html/wp-config.php
 service php7.3-fpm start
-tail -f > /dev/null
-# tail is forbiden just for test
+exec "$@"
