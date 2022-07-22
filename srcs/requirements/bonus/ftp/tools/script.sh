@@ -14,4 +14,4 @@ vim  /etc/vsftpd.conf
 echo "sammy" | tee -a /etc/vsftpd.userlist
 cat /etc/vsftpd.userlist
 service vsftpd start
-/usr/sbin/vsftpd;
+tail -f /var/null
