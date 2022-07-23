@@ -14,6 +14,8 @@ names=srcs_nginx srcs_mariadb srcs_wordpress
 volumes=srcs_myapp srcs_hostPath
 
 all:
+	mkdir /home/nhakkaou/data/
+	mkdir /home/nhakkaou/data/wp/
 	echo "127.0.0.1 nhakkaou.42.fr" >> /etc/hosts
 	docker-compose -f ./srcs/docker-compose.yml up -d --build
 down:
@@ -21,6 +23,7 @@ down:
 clean: down
 	docker rmi ${names}
 	docker volume rm ${volumes}
+	rm -rf /home/nhakkaou/data/wp/
 fclean:
 	docker system prune --all
 re: clean fclean all
