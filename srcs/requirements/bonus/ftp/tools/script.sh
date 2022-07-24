@@ -12,4 +12,4 @@ echo "vsftpd test file" | tee /home/sammy/ftp/files/test.txt
 echo "sammy" | tee -a /etc/vsftpd.userlist
 cat /etc/vsftpd.userlist
 service vsftpd start
-tail -f /var/null
+tail -f > /dev/null
