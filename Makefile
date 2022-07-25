@@ -25,5 +25,5 @@ clean: down
 	docker volume rm ${volumes}
 	rm -rf /home/nhakkaou/data/wp/
 fclean:
-	docker system prune --all
+	docker system prune --all -f
 re: clean fclean all
