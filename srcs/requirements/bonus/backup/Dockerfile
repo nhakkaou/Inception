@@ -2,5 +2,5 @@ FROM debian:buster
 
 RUN apt-get update  \
     && apt-get upgrade -y 
-
-CMD tail -f /dev/null
+COPY ./tools/script.sh /tmp/script.sh
+ENTRYPOINT [ "/bin/sh", "./tmp/script.sh" ]

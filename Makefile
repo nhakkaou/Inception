@@ -16,6 +16,7 @@ volumes=srcs_myapp srcs_hostPath
 all:
 	mkdir -p /home/nhakkaou/data/
 	mkdir -p /home/nhakkaou/data/wp/
+	mkdir -p /home/nhakkaou/db/
 	echo "127.0.0.1 nhakkaou.42.fr" >> /etc/hosts
 	docker-compose -f ./srcs/docker-compose.yml up -d --build
 down:
