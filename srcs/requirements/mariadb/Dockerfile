@@ -1,16 +1,9 @@
 FROM debian:buster
 
-RUN apt-get update  \
-    && apt-get upgrade -y \
-    && apt-get install -y mariadb-server
-COPY ./conf/create_db.sql /tmp/
-COPY ./tools/script.sh /tmp/
+RUN apt-get update && apt-get install -y mariadb-server
 COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
-
-ENV MYSQL_USER=nhakkaou \
-    MYSQL_PASSWORD=toor \
-    MYSQL_DATABASE=nhakkaou\
-    MYSQL_ROOT_PASSWORD=toor
+COPY ./conf/create_db.sql .
+RUN service mysql start && mysql -u root < create_db.sql
 
 EXPOSE 3306
-ENTRYPOINT [ "/bin/sh", "/tmp/script.sh" ]
+CMD ["mysqld_safe"]
