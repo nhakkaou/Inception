@@ -1,11 +1,10 @@
-mkdir /home/backup/
+mkdir -p ~/backup/
 while(true)
-{
+do
     echo "Backup in progress..."
-    $tmp = /home/backup/`date +%F`
-    mkdir $tmp
-    cp -r /home/ $tmp
+    mkdir -p ~/backup/$(date +%F)
+    cp -r /home/backup/* ~/backup/$(date +%F)
     echo "Backup done."
     #  backup every 4 hours
-    sleep 240
-}
+    sleep 24h
+done
