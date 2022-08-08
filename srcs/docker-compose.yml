@@ -8,6 +8,8 @@ services:
       - "3306:3306"
     volumes:
       - /home/nhakkaou/db/:/var/lib/mysql
+    env_file:
+      - .env
     restart: always
 
   wordpress:
@@ -19,6 +21,8 @@ services:
       - /home/nhakkaou/data/wp:/var/www/html/
     ports:
       - "9000:9000"
+    env_file:
+      - .env
     restart: always
 
   nginx:
@@ -30,6 +34,8 @@ services:
       - wordpress
     ports:
       - 443:443
+    env_file:
+      - .env
     restart: always
   adminer:
     build: ./requirements/bonus/adminer
@@ -38,6 +44,8 @@ services:
       - mariadb
     ports:
       - "8080:8080"
+    env_file:
+      - .env
     restart: always
   redis:
     build: ./requirements/bonus/redis
@@ -46,6 +54,8 @@ services:
       - mariadb
     ports:
       - "6379:6379"
+    env_file:
+      - .env
     restart: always
   ftp:
     build: ./requirements/bonus/ftp
@@ -54,6 +64,8 @@ services:
       - mariadb
     ports:
       - "21:21"
+    env_file:
+      - .env
     restart: always
   website:
     build: ./requirements/bonus/website
