@@ -1,8 +1,9 @@
 FROM debian:buster
 
 RUN apt-get update && apt-get install -y mariadb-server
-COPY ./conf/create_db.sql .
-COPY ./tools/script.sh  /tmp/script.sh
-EXPOSE 3306
+COPY ./tools/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
+COPY ./tools/Database.sql .
+RUN service mysql start && mysql -u root < Database.sql
 
-ENTRYPOINT [ "/bin/sh", "/tmp/script.sh" ]
+EXPOSE 3306
+CMD ["mysqld_safe"]
