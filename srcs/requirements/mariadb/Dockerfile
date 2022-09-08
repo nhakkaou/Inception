@@ -1,9 +1,17 @@
 FROM debian:buster
+RUN apt-get update -y
 
-RUN apt-get update && apt-get install -y mariadb-server
-COPY ./tools/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
-COPY ./tools/Database.sql .
-RUN service mysql start && mysql -u root < Database.sql
+# we install mariadb server package
+RUN apt-get install mariadb-server -y
+RUN service mysql start
+RUN chown -R mysql:mysql /var/lib/mysql  
+RUN chmod 777 /var/run/mysqld
+# we copy necessary files
+COPY ./tools/mariadb.sh /
+COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/
 
+RUN sh /mariadb.sh
+# we expose db port 
 EXPOSE 3306
-CMD ["mysqld_safe"]
+# we run mysql daeamon
+CMD exec mysqld_safe
