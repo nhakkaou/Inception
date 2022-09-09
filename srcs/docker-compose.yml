@@ -11,7 +11,6 @@ services:
     env_file:
       - .env
     restart: always
-
   wordpress:
     depends_on:
       - mariadb
@@ -47,26 +46,26 @@ services:
     env_file:
       - .env
     restart: always
-  # redis:
-  #   build: ./requirements/bonus/redis
-  #   container_name: redis
-  #   depends_on:
-  #     - mariadb
-  #   ports:
-  #     - "6379:6379"
-  #   env_file:
-  #     - .env
-  #   restart: always
-  # ftp:
-  #   build: ./requirements/bonus/ftp
-  #   container_name: ftp
-  #   depends_on:
-  #     - mariadb
-  #   ports:
-  #     - "21:21"
-  #   env_file:
-  #     - .env
-  #   restart: always
+  redis:
+    build: ./requirements/bonus/redis
+    container_name: redis
+    depends_on:
+      - mariadb
+    ports:
+      - "6379:6379"
+    env_file:
+      - .env
+    restart: always
+  ftp:
+    build: ./requirements/bonus/ftp
+    container_name: ftp
+    depends_on:
+      - mariadb
+    ports:
+      - "21:21"
+    env_file:
+      - .env
+    restart: always
   # website:
   #   build: ./requirements/bonus/website
   #   container_name: website

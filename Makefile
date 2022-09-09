@@ -28,3 +28,7 @@ clean: down
 	rm -rf ${path}/db
 fclean:
 	docker system prune --all -f
+rmv:
+	docker volume rm ${volumes}
+	rm -rf ${path}/data
+	rm -rf ${path}/db
