@@ -1,10 +1,10 @@
 adduser sammy;
 echo "sammy:test" | chpasswd;
-mkdir /home/sammy/ftp
+mkdir -p /home/sammy/ftp
 chown nobody:nogroup /home/sammy/ftp
 chmod a-w /home/sammy/ftp
 ls -la /home/sammy/ftp
-mkdir /home/sammy/ftp/files
+mkdir -p /home/sammy/ftp/files
 chown sammy:sammy /home/sammy/ftp/files
 ls -la /home/sammy/ftp
 echo "vsftpd test file" | sudo tee /home/sammy/ftp/files/test.txt

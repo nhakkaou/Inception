@@ -7,7 +7,7 @@ mv wp-cli.phar /usr/local/bin/wp
 wp core download --path=/var/www/html --allow-root
 chown -R www-data:www-data /var/www/html
 rm -rf /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
-wp config create --dbname=$MYSQL_DATABASE --dbuser=$MYSQL_USER --dbpass=$MYSQL_PASSWORD --dbhost=mariadb --path=/var/www/html/ --allow-root --skip-check
+wp config create --dbname=$MYSQL_DATABASE --dbuser=$MYSQL_USER_ROOT --dbpass=$MYSQL_PASSWORD --dbhost=mariadb --path=/var/www/html/ --allow-root --skip-check
 wp core install --url=$MYSQL_URL --title=Example --admin_user=$MYSQL_USER_ROOT --admin_password=$MYSQL_PASSWORD --admin_email=noureddine.hak@gmail.com --path=/var/www/html/ --allow-root
 wp plugin install redis-cache --path=/var/www/html/wordpress --activate --allow-root
 wp plugin activate redis-cache --path=/var/www/html/ --allow-root
