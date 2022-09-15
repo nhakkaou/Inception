@@ -59,12 +59,12 @@ services:
   ftp:
     build: ./requirements/bonus/ftp
     container_name: ftp
-    depends_on:
-      - mariadb
     ports:
       - "21:21"
     env_file:
       - .env
+    networks:
+      - inc_network
     restart: always
   website:
     build: ./requirements/bonus/website
@@ -82,6 +82,8 @@ services:
     volumes:
       - mariadb_data:/home/backup/
     restart: always
+networks:
+  inc_network:
 volumes:
 
   mariadb_data:
