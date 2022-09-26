@@ -6,6 +6,8 @@ services:
     container_name: mariadb
     ports:
       - "3306:3306"
+    networks:
+      - inc_network
     volumes:
       - mariadb_data:/var/lib/mysql
     env_file:
@@ -16,6 +18,8 @@ services:
       - mariadb
     build: ./requirements/wordpress
     container_name: wordpress
+    networks:
+      - inc_network
     volumes:
       - wordpress_nginx:/var/www/html/
     ports:
@@ -33,22 +37,28 @@ services:
       - wordpress
     ports:
       - 443:443
+    networks:
+      - inc_network
     env_file:
       - .env
     restart: always
-  adminer:
-    build: ./requirements/bonus/adminer
-    container_name: adminer
-    depends_on:
-      - mariadb
-    ports:
-      - "8080:8080"
-    env_file:
-      - .env
-    restart: always
+  # adminer:
+  #   build: ./requirements/bonus/adminer
+  #   container_name: adminer
+  #   depends_on:
+  #     - mariadb
+  #   ports:
+  #     - "8080:8080"
+  #   networks:
+  #     - inc_network
+  #   env_file:
+  #     - .env
+  #   restart: always
   redis:
     build: ./requirements/bonus/redis
     container_name: redis
+    networks:
+      - inc_network
     depends_on:
       - mariadb
     ports:
@@ -66,22 +76,26 @@ services:
     networks:
       - inc_network
     restart: always
-  website:
-    build: ./requirements/bonus/website
-    container_name: website
-    ports:
-      - "3000:3000"
-    restart: always
-  backup:
-    build: ./requirements/bonus/backup
-    container_name: backup
-    depends_on:
-      - mariadb
-    ports:
-      - "1337:1337"
-    volumes:
-      - mariadb_data:/home/backup/
-    restart: always
+  # website:
+  #   build: ./requirements/bonus/website
+  #   container_name: website
+  #   networks:
+  #     - inc_network
+  #   ports:
+  #     - "3000:3000"
+  #   restart: always
+  # backup:
+  #   build: ./requirements/bonus/backup
+  #   container_name: backup
+  #   depends_on:
+  #     - mariadb
+  #   ports:
+  #     - "1337:1337"
+  #   networks:
+  #     - inc_network
+  #   volumes:
+  #     - mariadb_data:/home/backup/
+  #   restart: always
 networks:
   inc_network:
 volumes:
