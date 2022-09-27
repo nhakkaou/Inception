@@ -15,6 +15,7 @@ wp redis enable --path=/var/www/html/ --allow-root
 echo "define('WP_CACHE', true);" >> /var/www/html/wp-config.php
 echo "define('WP_REDIS_HOST', 'redis');" >> /var/www/html/wp-config.php
 service php7.3-fpm start
-tail -f > /dev/null
+# tail -f > /dev/null
+php
 # php-fpm start -F
 # tail is forbiden just for test

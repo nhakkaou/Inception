@@ -19,6 +19,7 @@ RUN echo "pasv_max_port=40005" >> /etc/vsftpd.conf
 RUN echo "userlist_enable=YES" >> /etc/vsftpd.conf
 RUN echo "userlist_file=/etc/vsftpd.userlist" >> /etc/vsftpd.conf
 RUN echo "userlist_deny=NO" >> /etc/vsftpd.conf
+RUN echo "secure_chroot_dir=/home/sammy/ftp/" >> /etc/vsftpd.conf
 COPY ./tools/script.sh /tmp/script.sh
 
 ENTRYPOINT [ "/bin/sh", "/tmp/script.sh" ]
