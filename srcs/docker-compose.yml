@@ -66,16 +66,18 @@ services:
     env_file:
       - .env
     restart: always
-  # ftp:
-  #   build: ./requirements/bonus/ftp
-  #   container_name: ftp
-  #   ports:
-  #     - "21:21"
-  #   env_file:
-  #     - .env
-  #   networks:
-  #     - inc_network
-  #   restart: always
+  ftp:
+    build: ./requirements/bonus/ftp
+    container_name: ftp
+    ports:
+      - "21:21"
+    env_file:
+      - .env
+    volumes:
+      - wordpress_nginx:/home/sammy/ftp/files
+    networks:
+      - inc_network
+    restart: always
   # website:
   #   build: ./requirements/bonus/website
   #   container_name: website
