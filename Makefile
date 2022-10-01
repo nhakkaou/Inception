@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-names=srcs_nginx srcs_mariadb srcs_wordpress
+names=nginx mariadb wordpress ftp redis website
 volumes=srcs_mariadb_data srcs_wordpress_nginx
 path=/home/nhakkaou
 all:

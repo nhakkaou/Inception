@@ -1,12 +1,8 @@
 FROM debian:buster
 
-RUN apt-get update  \
-    && apt-get upgrade -y \
-    &&  apt-get  install redis-server php-redis -y 
+RUN apt update && apt upgrade -y
 
-RUN sed -i -e 's/127.0.0.1/0.0.0.0/g' /etc/redis/redis.conf 
-RUN service redis-server restart
+RUN apt install -y redis-server
 
-EXPOSE 6379
-
-CMD [ "redis-server", "--protected-mode",  "no" ]
+RUN sed -i 's/127.0.0.1/0.0.0.0/g' /etc/redis/redis.conf
+CMD [ "redis-server", "--protected-mode", "no" ]

@@ -10,10 +10,11 @@ rm -rf /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
 wp config create --dbname=$MYSQL_DATABASE --dbuser=$MYSQL_USER_ROOT --dbpass=$MYSQL_PASSWORD --dbhost=mariadb --path=/var/www/html/ --allow-root --skip-check
 wp core install --url=$MYSQL_URL --title=Example --admin_user=$MYSQL_USER_ROOT --admin_password=$MYSQL_PASSWORD --admin_email=noureddine.hak@gmail.com --path=/var/www/html/ --allow-root
 # Install Redis cache plugin
-wp plugin install redis-cache --path=/var/www/html/ --activate --allow-root
-wp redis enable --path=/var/www/html/ --allow-root
 echo "define('WP_CACHE', true);" >> /var/www/html/wp-config.php
 echo "define('WP_REDIS_HOST', 'redis');" >> /var/www/html/wp-config.php
+echo "define( 'WP_REDIS_PORT', 6379 );" >> /var/www/html/wp-config.php
+wp plugin install redis-cache --path=/var/www/html/ --activate --allow-root
+wp redis enable --path=/var/www/html/ --allow-root
 service php7.3-fpm start
 tail -f > /dev/null
 # php-fpm start -F

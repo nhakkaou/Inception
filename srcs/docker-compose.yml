@@ -4,6 +4,7 @@ services:
   mariadb:
     build: ./requirements/mariadb
     container_name: mariadb
+    image: mariadb
     ports:
       - "3306:3306"
     networks:
@@ -16,8 +17,10 @@ services:
   wordpress:
     depends_on:
       - mariadb
+      - redis
     build: ./requirements/wordpress
     container_name: wordpress
+    image: wordpress
     networks:
       - inc_network
     volumes:
@@ -31,6 +34,7 @@ services:
   nginx:
     build: ./requirements/nginx
     container_name: nginx
+    image: nginx
     volumes:
       - wordpress_nginx:/var/www/html
     depends_on:
@@ -57,10 +61,9 @@ services:
   redis:
     build: ./requirements/bonus/redis
     container_name: redis
+    image: redis
     networks:
       - inc_network
-    depends_on:
-      - mariadb
     ports:
       - "6379:6379"
     env_file:
@@ -69,6 +72,7 @@ services:
   ftp:
     build: ./requirements/bonus/ftp
     container_name: ftp
+    image: ftp
     ports:
       - "21:21"
     env_file:
