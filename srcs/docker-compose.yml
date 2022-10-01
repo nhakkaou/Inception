@@ -49,6 +49,7 @@ services:
   # adminer:
   #   build: ./requirements/bonus/adminer
   #   container_name: adminer
+  #    image: adminer
   #   depends_on:
   #     - mariadb
   #   ports:
@@ -69,22 +70,23 @@ services:
     env_file:
       - .env
     restart: always
-  ftp:
-    build: ./requirements/bonus/ftp
-    container_name: ftp
-    image: ftp
-    ports:
-      - "21:21"
-    env_file:
-      - .env
-    volumes:
-      - wordpress_nginx:/home/sammy/ftp/files
-    networks:
-      - inc_network
-    restart: always
+  # ftp:
+  #   build: ./requirements/bonus/ftp
+  #   container_name: ftp
+  #   image: ftp
+  #   ports:
+  #     - "21:21"
+  #   env_file:
+  #     - .env
+  #   volumes:
+  #     - wordpress_nginx:/home/sammy/ftp/files
+  #   networks:
+  #     - inc_network
+  #   restart: always
   # website:
   #   build: ./requirements/bonus/website
   #   container_name: website
+  #   image: website
   #   networks:
   #     - inc_network
   #   ports:
@@ -93,6 +95,7 @@ services:
   # backup:
   #   build: ./requirements/bonus/backup
   #   container_name: backup
+  #   image: backup
   #   depends_on:
   #     - mariadb
   #   ports:
