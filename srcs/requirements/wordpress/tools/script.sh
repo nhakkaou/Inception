@@ -16,10 +16,11 @@ define( 'WP_REDIS_READ_TIMEOUT', 1 );
 define( 'WP_REDIS_DATABASE', 0 );
 PHP
 wp core install --url=$MYSQL_URL --title=Example --admin_user=$MYSQL_USER_ROOT --admin_password=$MYSQL_PASSWORD --admin_email=noureddine.hak@gmail.com --path=/var/www/html/ --allow-root
+# the file /var/run/php/ will be created automatically when you run php service
+service php7.3-fpm start
 # Install Redis cache plugin
 wp plugin install redis-cache --path=/var/www/html/ --activate --allow-root
 wp redis enable --path=/var/www/html/ --allow-root
-service php7.3-fpm start
-tail -f > /dev/null
-# php-fpm start -F
-# tail is forbiden just for test
+# i Stop php cause the next command cannot use the port 9000
+service php7.3-fpm stop
+php-fpm7.3 -F

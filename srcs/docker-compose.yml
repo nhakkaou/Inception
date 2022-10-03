@@ -30,7 +30,6 @@ services:
     env_file:
       - .env
     restart: always
-
   nginx:
     build: ./requirements/nginx
     container_name: nginx
@@ -46,19 +45,19 @@ services:
     env_file:
       - .env
     restart: always
-  # adminer:
-  #   build: ./requirements/bonus/adminer
-  #   container_name: adminer
-  #    image: adminer
-  #   depends_on:
-  #     - mariadb
-  #   ports:
-  #     - "8080:8080"
-  #   networks:
-  #     - inc_network
-  #   env_file:
-  #     - .env
-  #   restart: always
+  adminer:
+    build: ./requirements/bonus/adminer
+    container_name: adminer
+    image: adminer
+    depends_on:
+      - mariadb
+    ports:
+      - "8080:8080"
+    networks:
+      - inc_network
+    env_file:
+      - .env
+    restart: always
   redis:
     build: ./requirements/bonus/redis
     container_name: redis
@@ -70,41 +69,44 @@ services:
     env_file:
       - .env
     restart: always
-  # ftp:
-  #   build: ./requirements/bonus/ftp
-  #   container_name: ftp
-  #   image: ftp
-  #   ports:
-  #     - "21:21"
-  #   env_file:
-  #     - .env
-  #   volumes:
-  #     - wordpress_nginx:/home/sammy/ftp/files
-  #   networks:
-  #     - inc_network
-  #   restart: always
-  # website:
-  #   build: ./requirements/bonus/website
-  #   container_name: website
-  #   image: website
-  #   networks:
-  #     - inc_network
-  #   ports:
-  #     - "3000:3000"
-  #   restart: always
-  # backup:
-  #   build: ./requirements/bonus/backup
-  #   container_name: backup
-  #   image: backup
-  #   depends_on:
-  #     - mariadb
-  #   ports:
-  #     - "1337:1337"
-  #   networks:
-  #     - inc_network
-  #   volumes:
-  #     - mariadb_data:/home/backup/
-  #   restart: always
+  ftp:
+    build: ./requirements/bonus/ftp
+    container_name: ftp
+    image: ftp
+    ports:
+      - "21:21"
+    depends_on:
+      - wordpress
+    env_file:
+      - .env
+    volumes:
+      - wordpress_nginx:/home/sammy/ftp/files
+    networks:
+      - inc_network
+    restart: always
+  website:
+    build: ./requirements/bonus/website
+    container_name: website
+    image: website
+    networks:
+      - inc_network
+    ports:
+      - "3000:3000"
+    restart: always
+  backup:
+    build: ./requirements/bonus/backup
+    container_name: backup
+    image: backup
+    # depends_on:
+    #   - mariadb
+    ports:
+      - "1337:1337"
+    networks:
+      - inc_network
+    volumes:
+      - mariadb_data:/home/backup/
+    restart: always
+
 networks:
   inc_network:
 volumes:
