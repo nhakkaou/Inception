@@ -5,6 +5,6 @@ do
     mkdir -p ~/backup/$(date +%F)
     cp -r /home/backup/* ~/backup/$(date +%F)
     echo "Backup done."
-    #  backup every 4 hours
-    sleep 24h
+    #  backup every day
+    sleep 1d
 done

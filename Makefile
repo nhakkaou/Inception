@@ -16,8 +16,8 @@ path=/home/nhakkaou
 all:
 	mkdir -p ${path}/data/
 	mkdir -p ${path}/data/wp/
-	mkdir -p ${path}/db/
-	# echo "127.0.0.1 nhakkaou.42.fr" >> /etc/hosts
+	mkdir -p ${path}/data/db/
+	echo "127.0.0.1 nhakkaou.42.fr" >> /etc/hosts
 	docker-compose -f ./srcs/docker-compose.yml up  --build
 down:
 	docker-compose -f ./srcs/docker-compose.yml down
@@ -25,10 +25,9 @@ clean: down
 	docker rmi ${names}
 	docker volume rm ${volumes}
 	rm -rf ${path}/data
-	rm -rf ${path}/db
+	sed -i 's/127.0.0.1 nhakkaou.42.fr//g' /etc/hosts
 fclean:
 	docker system prune --all -f
 rmv:
 	docker volume rm ${volumes}
 	rm -rf ${path}/data
-	rm -rf ${path}/db

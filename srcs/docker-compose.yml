@@ -116,7 +116,7 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/home/nhakkaou/db'
+      device: '/home/nhakkaou/data/db'
 
   wordpress_nginx:
     driver: local
