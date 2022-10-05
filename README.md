@@ -26,3 +26,5 @@ You will therefore have to set up:
 - A docker-network that will link your containers.
 
 Your containers will have to restart in the event of a crash.
+
+<strong>⚠️ In Every Dockerfile there is a link of ressources if you want to know more 👌</strong>
