@@ -16,6 +16,7 @@ define( 'WP_REDIS_READ_TIMEOUT', 1 );
 define( 'WP_REDIS_DATABASE', 0 );
 PHP
 wp core install --url=$MYSQL_URL --title=Example --admin_user=$MYSQL_USER_ROOT --admin_password=$MYSQL_PASSWORD --admin_email=noureddine.hak@gmail.com --path=/var/www/html/ --allow-root
+wp user create $MYSQL_USER $USER_EMAIL --user_pass=$MYSQL_PASSWORD --role=author --allow-root --path=/var/www/html/
 # the file /var/run/php/ will be created automatically when you run php service
 service php7.3-fpm start
 # Install Redis cache plugin
