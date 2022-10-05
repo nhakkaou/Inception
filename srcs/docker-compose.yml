@@ -97,10 +97,8 @@ services:
     build: ./requirements/bonus/backup
     container_name: backup
     image: backup
-    # depends_on:
-    #   - mariadb
-    ports:
-      - "1337:1337"
+    depends_on:
+      - mariadb
     networks:
       - inc_network
     volumes:
