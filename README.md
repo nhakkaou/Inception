@@ -28,3 +28,29 @@ You will therefore have to set up:
 Your containers will have to restart in the event of a crash.
 
 <strong>⚠️ In Every Dockerfile there is a link of ressources if you want to know more 👌</strong>
+
+# Ressources
+
+### Mariadb
+
+https://chartio.com/resources/tutorials/how-to-grant-all-privileges-on-a-database-in-mysql/
+
+https://stackoverflow.com/questions/11223235/mysql-root-access-from-all-hosts
+
+### Nginx
+
+https://www.digicert.com/kb/ssl-support/openssl-quick-reference-guide.htm#Usingthe-subjSwitch
+
+https://www.a10networks.com/glossary/key-differences-between-tls-1-2-and-tls-1-3/
+
+https://www.openssl.org/docs/man1.0.2/man1/openssl-req.html#:~:text=The%20req%20command%20primarily%20creates,as%20root%20CAs%20for%20example.
+
+### Wordpress
+
+### FTP
+
+https://www.digitalocean.com/community/tutorials/how-to-set-up-vsftpd-for-a-user-s-directory-on-debian-10
+
+### Redis
+
+### Adminer
