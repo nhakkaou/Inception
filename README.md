@@ -33,24 +33,28 @@ Your containers will have to restart in the event of a crash.
 
 ### Mariadb
 
-https://chartio.com/resources/tutorials/how-to-grant-all-privileges-on-a-database-in-mysql/
+[Grant All Privileges on a Database in MySQL](https://chartio.com/resources/tutorials/how-to-grant-all-privileges-on-a-database-in-mysql/)
 
-https://stackoverflow.com/questions/11223235/mysql-root-access-from-all-hosts
+[Root access from all hosts](https://stackoverflow.com/questions/11223235/mysql-root-access-from-all-hosts)
 
 ### Nginx
 
-https://www.digicert.com/kb/ssl-support/openssl-quick-reference-guide.htm#Usingthe-subjSwitch
+[difference between tlsv1.2 tlsv1.3](https://www.a10networks.com/glossary/key-differences-between-tls-1-2-and-tls-1-3/)
 
-https://www.a10networks.com/glossary/key-differences-between-tls-1-2-and-tls-1-3/
-
-https://www.openssl.org/docs/man1.0.2/man1/openssl-req.html#:~:text=The%20req%20command%20primarily%20creates,as%20root%20CAs%20for%20example.
+[create ssl certif](https://www.openssl.org/docs/man1.0.2/man1/openssl-req.html#:~:text=The%20req%20command%20primarily%20creates,as%20root%20CAs%20for%20example)
 
 ### Wordpress
 
+[Install wp CLI](https://wp-cli.org/)
+
 ### FTP
 
-https://www.digitalocean.com/community/tutorials/how-to-set-up-vsftpd-for-a-user-s-directory-on-debian-10
+[FTP Configuration](https://www.digitalocean.com/community/tutorials/how-to-set-up-vsftpd-for-a-user-s-directory-on-debian-10)
 
 ### Redis
 
+[Install Redis ](https://www.hostinger.com/tutorials/how-to-install-and-setup-redis-on-ubuntu/)
+
 ### Adminer
+
+[Install Adminer](https://linuxhint.com/install-adminer-ubuntu/)
